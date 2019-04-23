@@ -30,11 +30,11 @@ create table Locacao(
     /*constraint Locacao1_FK FOREIGN KEY (cnpj_locadora) REFERENCES Locadora(cnpj_locadora), */
     PRIMARY KEY (id_locacao),
     FOREIGN KEY (cpf_cliente) REFERENCES Cliente(cpf_cliente),
-    FOREIGN KEY (cnpj_locadora) REFERENCES Locadora(cnpj_locadora),
+    FOREIGN KEY (cnpj_locadora) REFERENCES Locadora(cnpj_locadora)
 );
 
-insert into Cliente(email_cliente, senha_cliente, cpf_cliente, nome_cliente, telefone_cliente, sexo_cliente, nascimento_cliente) values ('maria@email.com', 'abc123', '23101125810', 'Maria Silva', '01638421441', 'f', 01/12/1970);
-insert into Cliente(email_cliente, senha_cliente, cpf_cliente, nome_cliente, telefone_cliente, sexo_cliente, nascimento_cliente) values ('joao@email.com', 'zwx012', '40161827955', 'Joao Costa', '01638521133', 'm', 14/06/1983);
+insert into Cliente(email_cliente, senha_cliente, cpf_cliente, nome_cliente, telefone_cliente, sexo_cliente, nascimento_cliente) values ('maria@email.com', 'abc123', '23101125810', 'Maria Silva', '01638421441', 'f', '1970-09-01');
+insert into Cliente(email_cliente, senha_cliente, cpf_cliente, nome_cliente, telefone_cliente, sexo_cliente, nascimento_cliente) values ('joao@email.com', 'zwx012', '40161827955', 'Joao Costa', '01638521133', 'm', '1987-10-02');
 
 insert into Locadora(cnpj_locadora, email_locadora, senha_locadora, nome_locadora, cidade_locadora) values ('123456789123', 'locadora_locaki@locaki.com', 'senhalocadora', 'LocAki', 'São Carlos - SP');
 insert into Locadora(cnpj_locadora, email_locadora, senha_locadora, nome_locadora, cidade_locadora) values ('987147963200', 'locadora_superfilmes@superfilmes.com', 'superfilmes', 'Super Filmes', 'São Carlos - SP');
