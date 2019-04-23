@@ -15,7 +15,7 @@
                 <legend>Digite seus dados:</legend>
                 <!--E-mail: <input name="email" type="text" value=""/><br/>
                 Senha: <input name="senha" type="text" value=""/><br/>-->
-                CNPJ: <input name="cnpj" type="text" value=""/><br/>
+                CNPJ: <input name="cnpj_locacao" type="text" value=""/><br/>
                 Data da Locacao: <input name="data_locacao" type="text" value=""/><br/>
                 <input type="submit" value="Gravar"/>
             </fieldset>

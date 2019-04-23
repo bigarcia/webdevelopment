@@ -13,11 +13,11 @@
         <form action="NovoClienteServlet" method="post">
             <fieldset>
                 <legend>Digite seus dados:</legend>
-                E-mail: <input name="email" type="text" value=""/><br/>
-                Senha: <input name="senha" type="text" value=""/><br/>
-                CNPJ: <input name="cnpj" type="text" value=""/><br/>
-                Nome: <input name="nome" type="text" /><br/>
-                Cidade: <input name="cidade" type="text" /><br/>
+                E-mail: <input name="email_locadora" type="text" value=""/><br/>
+                Senha: <input name="senha_locadora" type="text" value=""/><br/>
+                CNPJ: <input name="cnpj_locadora" type="text" value=""/><br/>
+                Nome: <input name="nome_locadora" type="text" /><br/>
+                Cidade: <input name="cidade_locadora" type="text" /><br/>
                 <input type="submit" value="Enviar"/>
             </fieldset>
         </form>

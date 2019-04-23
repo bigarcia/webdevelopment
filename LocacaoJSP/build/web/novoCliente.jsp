@@ -13,13 +13,13 @@
         <form action="NovoClienteServlet" method="post">
             <fieldset>
                 <legend>Digite seus dados:</legend>
-                E-mail: <input name="email" type="text" value=""/><br/>
-                Senha: <input name="senha" type="text" value=""/><br/>
-                CPF: <input name="cpf" type="text" value=""/><br/>
-                Nome: <input name="nome" type="text" /><br/>
-                Telefone: <input name="telefone" type="text" value="" /><br/>
-                Sexo: <input name="sexo" type="text" value=""/><br/>
-                Data de nascimento: <input name="dataDeNascimento" type="date" value="" /><br/>
+                E-mail: <input name="email_cliente" type="text" value=""/><br/>
+                Senha: <input name="senha_cliente" type="text" value=""/><br/>
+                CPF: <input name="cpf_cliente" type="text" value=""/><br/>
+                Nome: <input name="nome_cliente" type="text" /><br/>
+                Telefone: <input name="telefone_cliente" type="text" value="" /><br/>
+                Sexo: <input name="sexo_cliente" type="text" value=""/><br/>
+                Data de nascimento: <input name="dataDeNascimento_cliente" type="date" value="" /><br/>
                 <input type="submit" value="Enviar"/>
             </fieldset>
         </form>
