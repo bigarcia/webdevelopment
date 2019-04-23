@@ -53,6 +53,26 @@ public class LocacaoDAO extends GenericDAO {
         }
         return ret;
     }
+    
+        public List<Locacao> listarTodasLocacoesPorLocadora(String locadora_locacao) throws SQLException {
+        List<Locacao> ret = new ArrayList<>();
+        try (Connection con = this.getConnection()) {
+            PreparedStatement ps = con.prepareStatement(LISTAR_LOCACAO_LOCADORA_SQL);
+            ps.setString(1, locadora_locacao);
+            ps.setString(2, locadora_locacao);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Locacao locacao = new Locacao();
+                Locadora locadora = new Locadora();
+                                
+                locacao.setId_locacao(rs.getInt("id_locacao"));
+                locacao.setData_dia_locadora(rs.getString("data_dia_locadora"));           
+                locadora.setCpnj_locadora(rs.getString("cnpj_locadora"));
+                ret.add(locacao);
+            }
+        }
+        return ret;
+    }
 
    
 }
