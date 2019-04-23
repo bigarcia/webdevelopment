@@ -15,8 +15,8 @@ import java.util.List;
 public class LocacaoDAO extends GenericDAO {
 
     private final static String CRIAR_LOCACAO_SQL = "insert into Locadora" + " (email_locadora, senha_locadora, cnpj_locadora, nome_locadora, cidade_locadora)" + "values(?,?,?,?,?)";
-    private final static String LISTAR_LOCACAO_CLIENTE_SQL = "select" + "c.cpf_cliente, l.cpnj_locadora, l.data_dia_locacao" + " from Locacao l inner join Cliente c on c.cpf_cliente = l.cpf_cliente";
-    private final static String LISTAR_LOCACAO_LOCADORA_SQL = "select" + "ld.cnpj_locadora, l.cpf_cliente, l.data_dia_locacao" + " from Locacao l inner join Locadora ld on ld.cnpj_cliente = l.cnpj_cliente";
+    private final static String LISTAR_LOCACAO_CLIENTE_SQL = "select" + "*" + " from Locacao where cliente.cpf_cliente = locacao.cpf_cliente";
+    private final static String LISTAR_LOCACAO_LOCADORA_SQL = "select" + "*" + " from Locacao where locadora.cnpj_cliente = locacao.cnpj_cliente";
 
     public Locacao gravarLocacao(Locacao locacao) throws SQLException {
         try (Connection con = this.getConnection()) {
@@ -32,22 +32,22 @@ public class LocacaoDAO extends GenericDAO {
         return locacao;
     }
     
-    public List<Locacao> listarTodasLocacoesPorCliente(String cliente_locacao) throws SQLException {
+    public List<Locacao> listarTodasLocacoesPorCliente(String cliente) throws SQLException {
         List<Locacao> ret = new ArrayList<>();
         try (Connection con = this.getConnection()) {
             PreparedStatement ps = con.prepareStatement(LISTAR_LOCACAO_CLIENTE_SQL);
-            ps.setString(1, cliente_locacao);
-            ps.setString(2, cliente_locacao);
+            ps.setString(1, cliente);
+            ps.setString(2, cliente);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Locacao locacao = new Locacao();
-                Locadora locadora = new Locadora();
-                Cliente cliente = new Cliente();
+                /*Locadora locadora = new Locadora();
+                Cliente cliente = new Cliente();*/
                 
                 locacao.setId_locacao(rs.getInt("id_locacao"));
                 locacao.setData_dia_locadora(rs.getString("data_dia_locadora"));           
-                cliente.setCpf_cliente(rs.getString("cpf_cliente"));
-                locadora.setCpnj_locadora(rs.getString("cnpj_locadora"));
+               /* cliente.setCpf_cliente(rs.getString("cpf_cliente"));
+                locadora.setCpnj_locadora(rs.getString("cnpj_locadora"));*/
                 ret.add(locacao);
             }
         }
