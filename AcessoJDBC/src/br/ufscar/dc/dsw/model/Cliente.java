@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Cliente {
 
-    private int id_cliente;
+    //private int id_cliente;
     private String email_cliente;
     private String senha_cliente;
     private String cpf_cliente;
@@ -13,13 +13,13 @@ public class Cliente {
     private String sexo_cliente;
     private Date nascimento_cliente;
 
-    public int getId_cliente() {
+    /*public int getId_cliente() {
         return id_cliente;
     }
 
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
-    }
+    }*/
 
     public String getEmail_cliente() {
         return email_cliente;

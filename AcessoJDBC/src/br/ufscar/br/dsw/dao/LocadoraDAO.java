@@ -28,7 +28,7 @@ public class LocadoraDAO extends GenericDAO {
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            locadora.setId_locadora(rs.getInt(1));
+            //locadora.setId_locadora(rs.getInt(1));
         }
         return locadora;
     }
@@ -45,7 +45,7 @@ public class LocadoraDAO extends GenericDAO {
             while (rs.next()) {
                 Locadora locadora = new Locadora();
                 //Usuario usuario = new Usuario();
-                locadora.setId_locadora(rs.getInt("id_locadora"));
+                //locadora.setId_locadora(rs.getInt("id_locadora"));
                 locadora.setEmail_locadora(rs.getString("email_locadora"));
                 locadora.setSenha_locadora(rs.getString("senha_locadora"));
                 locadora.setCpnj_locadora(rs.getString("cnpj_locadora"));
@@ -71,7 +71,7 @@ public class LocadoraDAO extends GenericDAO {
             while (rs.next()) {
                 Locadora locadora = new Locadora();
                 //Usuario usuario = new Usuario();
-                locadora.setId_locadora(rs.getInt("id_locadora"));
+               // locadora.setId_locadora(rs.getInt("id_locadora"));
                 locadora.setEmail_locadora(rs.getString("email_locadora"));
                 locadora.setSenha_locadora(rs.getString("senha_locadora"));
                 locadora.setCpnj_locadora(rs.getString("cnpj_locadora"));

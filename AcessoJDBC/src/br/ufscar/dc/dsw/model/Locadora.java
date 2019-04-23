@@ -2,20 +2,20 @@ package br.ufscar.dc.dsw.model;
 
 public class Locadora {
 
-    private int id_locadora;
+    //private int id_locadora;
     private String email_locadora;
     private String senha_locadora;
     private String cnpj_locadora;
     private String nome_locadora;
     private String cidade_locadora;
 
-    public int getId_locadora() {
+  /*  public int getId_locadora() {
         return id_locadora;
     }
 
     public void setId_locadora(int id_locadora) {
         this.id_locadora = id_locadora;
-    }
+    }*/
 
     public String getEmail_locadora() {
         return email_locadora;

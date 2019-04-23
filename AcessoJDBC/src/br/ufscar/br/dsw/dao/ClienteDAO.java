@@ -33,7 +33,7 @@ public class ClienteDAO extends GenericDAO {
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            cliente.setId_cliente(rs.getInt(1));
+           // cliente.setId_cliente(rs.getInt(1));
         }
         return cliente;
     }
