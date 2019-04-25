@@ -7,12 +7,16 @@
         <link rel="stylesheet" type="text/css" href="estilo.css" />
     </head>
     <body>
-        <h1>Bem-vindo ao Bolaão do Brasileiraão 2019!</h1>
+        <h1>Bem vindo à Locação</h1>
         <hr>
-        <p>Este eé o Bolaão do Brasileiraão 2019<p>
+       
         <p>Escolha o que deseja fazer:</p>
-        <a href="#">Fazer uma aposta</a><br/>
-        <a href="#">Ver todas as apostas</a><br/>
-        <a href="#">Ver todas as apostas envolvendo o Palmeiras</a><br/>
+        <a href="novoCliente.jsp">Cadastrar Cliente</a><br/>
+        <a href="novaLocacao.jsp">Cadastrar Locadora</a><br/>
+        <a href="novaLocacao.jsp">Cadastrar Locação</a><br/>
+        <a href="#">Listagem de todas as locadoras</a><br/>
+        <a href="#">Listagem de todas as locadoras por cidade</a><br/>
+        <a href="#">Listar todas as locações de um cliente</a><br/>
+        <a href="#">Listar todas as locações de uma locadora</a><br/>
     </body>
 </html>
