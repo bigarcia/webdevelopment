@@ -10,7 +10,7 @@
     <body>
         <jsp:useBean id="cliente" class="br.ufscar.dc.dsw.model.Cliente" />
         <h1>Novo cliente</h1>
-        <form action="NovoClienteServlet" method="post">
+        <form action="novocliente" method="post">
             <fieldset>
                 <legend>Digite seus dados:</legend>
                 E-mail: <input name="email_cliente" type="text" value=""/><br/>
