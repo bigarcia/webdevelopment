@@ -1,7 +1,6 @@
 package br.ufscar.dc.dsw.login;
 
 import javax.sql.DataSource;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -32,10 +31,8 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/GravarCLienteServlet/").hasRole("ADMIN")
-                .antMatchers("/locadora_crud/**").hasRole("ADMIN")
-                .antMatchers("/locacao_crud/**").hasAnyRole("LOCADORA", "CLIENTE")
-                .anyRequest().authenticated() // pede login
+                .antMatchers("/user/**").hasRole("USER")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .and()

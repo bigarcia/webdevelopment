@@ -14,27 +14,6 @@
 			Não há locações!
 		</c:if>
 		<c:if test="${!empty requestScope.listaLocacao}">
-		<%! static LocadoraDAO locadoraDAO = new LocadoraDAO();
-                static List<Locadora> listarLocadora = dao.getAll();
-                static int i = 0;
-                static int id_locacao = 0;
-            %>
-			<% for (i = 0; i < listaLocadora.size(); i++) { %>
-            <tr>
-                <td> <% out.println(listaLocadora.get(i).getId_locadora());%></td>
-                <td> <% out.println(listaLocadora.get(i).getNome_locadora());%></td>
-                <td> <% out.println(listaLocadora.get(i).getCnpj_locadora());%></td>
-                <td> <% out.println(listaLocadora.get(i).getCidade_locadora());%></td>
-                <td> <% out.println(listaLocadora.get(i).getEmail_locadora());%></td>
-                <% id_locacao = listaLocadora.get(i).getId_locadora();
-                        System.out.println(id_locacao);%>
-                <td><a href="edicao?id=<%=id_locacao%> "><fmt:message key="editar"/></a>                        
-                    &nbsp;&nbsp;&nbsp;&nbsp;                        
-                    <a href="remocao?id=<%=id_locacao%>
-                       "onclick="return confirm('Tem certeza de que deseja excluir este item?');">
-                        <fmt:message key="remover"/>
-                    </a></td>                
-            </tr> 
 		<table>
 			<tr>
 				<th>Locacao</th>

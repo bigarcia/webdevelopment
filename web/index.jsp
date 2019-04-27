@@ -20,11 +20,8 @@
 		</c:if>
 		
         <p>Escolha o que deseja fazer:</p>
-        
-      
         <a href="novoCliente.jsp">Cadastrar Cliente</a><br/>
         <a href="novaLocadora.jsp">Cadastrar Locadora</a><br/>
-   
         <a href="novaLocacao.jsp">Cadastrar Locação</a><br/>
         <a href="listaLocadoras.jsp">Listagem de todas as locadoras</a><br/>
         <!--<a href="listaLocadoraCidade.jsp">Listagem de todas as locadoras por cidade</a><br/> <!--Fazer
