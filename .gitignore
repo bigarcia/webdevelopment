@@ -1,4 +1,3 @@
 build/
 nbproject/private/
-nbproject/build-impl.xml
-/LocacaoJSP/dist/
+/dist/
