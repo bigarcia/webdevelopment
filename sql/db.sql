@@ -7,23 +7,21 @@ DROP TABLE Papel;
 create table Usuario
 (
     id_usuario integer not null generated always as identity (start with 1, increment by 1),
-    email varchar(50) not null,
-    senha varchar(100) not null,
-    ativo smallint not null,
+    email_usuario varchar(50) not null,
+    senha_usuario varchar(100) not null,
+    ativo_usuario smallint not null,
     constraint Usuario_PK PRIMARY KEY (id_usuario)
 );
 
 create table Papel (
     id_papel integer not null generated always as identity (start with 1, increment by 1),
-    email varchar(50) not null,
-    nome varchar(50) not null,
+    email_papel varchar(50) not null,
+    nome_papel varchar(50) not null,
     constraint Papel_PK PRIMARY KEY (id_papel)
 );
 
 create table Cliente(
     id_cliente integer UNIQUE,
-    email_cliente varchar(50) not null,
-    senha_cliente varchar(100) not null,
     cpf_cliente varchar(15) not null,
     nome_cliente varchar(100) not null,
     telefone_cliente varchar(20) not null, 
@@ -36,8 +34,6 @@ create table Cliente(
 create table Locadora(
     id_locadora integer UNIQUE,
     cnpj_locadora varchar(14) not null,
-    email_locadora varchar(50) not null,
-    senha_locadora varchar(100) not null,
     nome_locadora varchar(100) not null,
     cidade_locadora varchar(50) not null,
     constraint Locadora_PK PRIMARY KEY (cnpj_locadora),
