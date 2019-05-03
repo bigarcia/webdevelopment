@@ -17,7 +17,7 @@ public class ClienteDAO extends GenericDAO {
     public void insert(Cliente cliente){
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         int id_cliente = usuarioDAO.insert(cliente);
-        String sql = "INSERT INTO into Cliente (id_cliente, nome_cliente, cpf_cliente, telefon_cliente, data_nascimento_cliente, sexo_cliente) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO into Cliente (id_cliente, cpf_cliente, nome_cliente,  telefone_cliente, sexo_cliente, nascimento_cliente ) VALUES (?, ?, ?, ?, ?, ?)";
         Papel papel = new Papel(cliente.getEmail_usuario(), "ROLE_CLIENTE");
         PapelDAO papelDAO = new PapelDAO();
         papelDAO.insert(papel);
@@ -40,37 +40,6 @@ public class ClienteDAO extends GenericDAO {
         }
         
     }
-        
-
-    public List<Cliente> getAll() {
-        List<Cliente> listaCliente = new ArrayList<>();
-        String sql = "SELECT * FROM Cliente c,  Usuario u WHERE c.id_cliente = u.id_usuario";
-        try {
-            Connection con = this.getConnection();
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                int id_cliente = resultSet.getInt("id_cliente");                       
-                String cpf_cliente = resultSet.getString("cpf_cliente");
-                String nome_cliente = resultSet.getString("nome_cliente");
-                String telefone_cliente = resultSet.getString("telefone_cliente");
-                String sexo_cliente = resultSet.getString("sexo_cliente");
-                String nascimento_cliente = resultSet.getString("nascimento_cliente");
-                String email_usuario = resultSet.getString("email_usuario");  
-                int ativo_usuario = resultSet.getInt("ativo_usuario");
-               
-                Cliente cliente = new Cliente(id_cliente, cpf_cliente, nome_cliente, telefone_cliente, sexo_cliente, nascimento_cliente, email_usuario, ativo_usuario);
-                listaCliente.add(cliente);
-            }
-            resultSet.close();
-            statement.close();
-            con.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return listaCliente;
-    }
-
     public Cliente get(int id_cliente){ 
         Cliente cliente = null;
         
@@ -120,7 +89,59 @@ public class ClienteDAO extends GenericDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }    
+
+    public List<Cliente> getAll() {
+        List<Cliente> listaCliente = new ArrayList<>();
+        String sql = "SELECT * FROM Cliente c,  Usuario u WHERE c.id_cliente = u.id_usuario";
+        try {
+            Connection con = this.getConnection();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int id_cliente = resultSet.getInt("id_cliente");                       
+                String cpf_cliente = resultSet.getString("cpf_cliente");
+                String nome_cliente = resultSet.getString("nome_cliente");
+                String telefone_cliente = resultSet.getString("telefone_cliente");
+                String sexo_cliente = resultSet.getString("sexo_cliente");
+                String nascimento_cliente = resultSet.getString("nascimento_cliente");
+                String email_usuario = resultSet.getString("email_usuario");  
+                int ativo_usuario = resultSet.getInt("ativo_usuario");
+               
+                Cliente cliente = new Cliente(id_cliente, cpf_cliente, nome_cliente, telefone_cliente, sexo_cliente, nascimento_cliente, email_usuario, ativo_usuario);
+                listaCliente.add(cliente);
+            }
+            resultSet.close();
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaCliente;
     }
+    
+    public String getCpf(String email) {
+        String cpf_cliente = null;
+        String sql = "SELECT cpf_cliente FROM Cliente c, Usuario u WHERE u.id_usuario = c.id_cliente and email_usuario = ?";
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+              cpf_cliente = resultSet.getString("cpf_cliente");
+            }
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cpf_cliente;
+    }
+
+    
+    
       public void delete(Cliente cliente) {
       
        String sql = "DELETE FROM Cliente where id_cliente = ?";
