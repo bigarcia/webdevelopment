@@ -15,13 +15,12 @@ import java.util.List;
 public class ClienteDAO extends GenericDAO {
         
     public void insert(Cliente cliente){
-        System.out.println("Entrei DAO Cliente");
+       
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         int id_cliente = usuarioDAO.insert(cliente);
        
         Papel papel = new Papel(cliente.getEmail_usuario(), "ROLE_CLIENTE");
-        System.out.println("Email usuário:");
-        System.out.println(cliente.getEmail_usuario());
+  
         PapelDAO papelDAO = new PapelDAO();
         papelDAO.insert(papel);
         
@@ -76,26 +75,30 @@ public class ClienteDAO extends GenericDAO {
         }
         return cliente;
     }
-        public void update(Cliente cliente) {
-        String sql = "UPDATE Cliente SET cpf_cliente = ?,nome_cliente = ?, telefone_cliente = ?, sexo_cliente = ?, nascimento_cliente = ?";
+    public void update(Cliente cliente) {
+        String sql = "UPDATE Cliente SET cpf_cliente = ?, nome_cliente = ?, telefone_cliente = ?, sexo_cliente = ?, nascimento_cliente = ?";
         sql += " WHERE id_cliente = ?";
-       
+
         try {
             Connection conn = this.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, cliente.getId_cliente());
-            ps.setString(2, cliente.getCpf_cliente());
-            ps.setString(3, cliente.getNome_cliente());
-            ps.setString(4, cliente.getTelefone_cliente());
-            ps.setString(5, cliente.getSexo_cliente());
-            ps.setString(6, cliente.getNascimento_cliente());
-            
+           
+            ps.setString(1, cliente.getCpf_cliente());
+            ps.setString(2, cliente.getNome_cliente());
+            ps.setString(3, cliente.getTelefone_cliente());
+            ps.setString(4, cliente.getSexo_cliente());
+            ps.setString(5, cliente.getNascimento_cliente());
+             ps.setInt(6, cliente.getId_cliente());
+
             ps.executeUpdate();
             ps.close();
             conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
+    }
+
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    usuarioDAO.update(cliente);
     }    
 
     public List<Cliente> getAll() {

@@ -120,8 +120,8 @@ public class ClienteController extends HttpServlet {
         String senha_usuario = request.getParameter("senha_usuario");
         int ativo_usuario = 1;
        
-        
-        Cliente cliente = new Cliente(id_cliente, cpf_cliente,nome_cliente,telefone_cliente,sexo_cliente,nascimento_cliente,senha_usuario, email_usuario, ativo_usuario);
+       
+        Cliente cliente = new Cliente(id_cliente, cpf_cliente, nome_cliente,telefone_cliente,sexo_cliente,nascimento_cliente,senha_usuario, email_usuario, ativo_usuario);
         daoCliente.update(cliente);
         response.sendRedirect("lista");
     }

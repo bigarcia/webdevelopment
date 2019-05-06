@@ -19,8 +19,8 @@
             <form action="atualizacao" method="post">
             </c:if>
             <c:if test="${cliente == null}">
-            <form action="insercao" method="post">
-            </c:if>
+                <form action="insercao" method="post">
+                </c:if>
                 <table border="1" cellpadding="5">
                     <caption>
                         <h2>
@@ -83,11 +83,11 @@
                     </tr>
                     <tr>                        
                         <th>Senha</th>                    
-                    <td>                            
-                        <input type="password" name="senha_usuario"                                   
-                               value="<c:out value='${cliente.senha_usuario}' />"                                   
-                               />                        
-                    </td>                    
+                        <td>                            
+                            <input type="password" name="senha_usuario"                                   
+                                   value="<c:out value='${cliente.senha_usuario}' />"                                   
+                                   />                        
+                        </td>                    
                     </tr> 
                     <tr>
                         <td colspan="2" align="center">
