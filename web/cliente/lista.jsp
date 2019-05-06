@@ -17,7 +17,7 @@
         <h2>
             <a href="cadastro">Adicione Novo Cliente</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="lista">Lista de clientes</a>
+           
         </h2>
     </center>
     <div align="center">

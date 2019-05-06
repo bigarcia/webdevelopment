@@ -7,10 +7,9 @@
     </head>
     <body>
     <center>
-        <h1>Gerenciamento de Clientes</h1>
+        <h1>Cliente</h1>
         <h2>
-            <a href="cadastra">Adicione Novo Cliente</a>
-            &nbsp;&nbsp;&nbsp;
+           
             <a href="lista">Lista de Clientes</a>
         </h2>
     </center>
