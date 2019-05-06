@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:remove scope="session" var="novoCliente" />
-<c:remove scope="session" var="novaLocadora" />
-<c:remove scope="session" var="novaLocacao" />
+<c:remove scope="session" var="cliente_crud" />
+<c:remove scope="session" var="locadora_crud" />
+<c:remove scope="session" var="locacao_crud" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

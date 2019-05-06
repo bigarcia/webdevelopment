@@ -86,6 +86,8 @@ public class ClienteController extends HttpServlet {
 
     private void insere(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
+        
+      
                 
         request.setCharacterEncoding("UTF-8");
         String cpf_cliente = request.getParameter("cpf_cliente");
@@ -94,14 +96,15 @@ public class ClienteController extends HttpServlet {
         String sexo_cliente = request.getParameter("sexo_cliente");
         String nascimento_cliente = request.getParameter("nascimento_cliente");      
         String email_usuario = request.getParameter("email_usuario");
+          System.out.println(email_usuario);
         String senha_usuario = request.getParameter("senha_usuario");
         int ativo_usuario = 1;
                 
-        Cliente cliente = new Cliente(-1, cpf_cliente,nome_cliente,telefone_cliente,sexo_cliente,nascimento_cliente,senha_usuario, email_usuario, ativo_usuario);
+        Cliente cliente = new Cliente(-1,cpf_cliente,nome_cliente,telefone_cliente,sexo_cliente,nascimento_cliente,senha_usuario, email_usuario, ativo_usuario);
         
         daoCliente.insert(cliente);
         
-        response.sendRedirect("/webdevelopment/");
+        response.sendRedirect("lista");
     }
 
     private void atualiza(HttpServletRequest request, HttpServletResponse response) throws IOException {

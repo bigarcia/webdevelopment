@@ -13,14 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteDAO extends GenericDAO {
-    
+        
     public void insert(Cliente cliente){
+        System.out.println("Entrei DAO Cliente");
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         int id_cliente = usuarioDAO.insert(cliente);
-        String sql = "INSERT INTO into Cliente (id_cliente, cpf_cliente, nome_cliente,  telefone_cliente, sexo_cliente, nascimento_cliente ) VALUES (?, ?, ?, ?, ?, ?)";
+       
         Papel papel = new Papel(cliente.getEmail_usuario(), "ROLE_CLIENTE");
+        System.out.println("Email usuário:");
+        System.out.println(cliente.getEmail_usuario());
         PapelDAO papelDAO = new PapelDAO();
         papelDAO.insert(papel);
+        
+         String sql = "INSERT INTO Cliente (id_cliente, cpf_cliente, nome_cliente,  telefone_cliente, sexo_cliente, nascimento_cliente ) VALUES (?, ?, ?, ?, ?, ?)";
+        
         try {
             Connection con = this.getConnection(); 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -38,6 +44,7 @@ public class ClienteDAO extends GenericDAO {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        
         
     }
     public Cliente get(int id_cliente){ 

@@ -39,8 +39,9 @@ public class UsuarioDAO extends GenericDAO {
             
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            //PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, usuario.getEmail_usuario());
-            statement.setString(2, encoder.encode(usuario.getSenha_usuario()));
+            statement.setString(2, usuario.getSenha_usuario());
             statement.setInt(3, usuario.getAtivo_usuario());
             statement.executeUpdate();
 

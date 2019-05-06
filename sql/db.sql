@@ -25,7 +25,7 @@ create table Cliente(
     cpf_cliente varchar(15) not null,
     nome_cliente varchar(100) not null,
     telefone_cliente varchar(20) not null, 
-    sexo_cliente varchar(1) not null,
+    sexo_cliente varchar(10) not null,
     nascimento_cliente varchar(10) not null,
     constraint Cliente_PK PRIMARY KEY (cpf_cliente),
     constraint Cliente_FK FOREIGN KEY (id_cliente) REFERENCES Usuario(id_usuario) ON DELETE CASCADE

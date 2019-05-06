@@ -19,7 +19,7 @@ public class Cliente extends Usuario {
         this.nascimento_cliente = nascimento_cliente;
     }
     
-     public Cliente(int id_cliente, String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente, String email_usuario, int ativo_usuario) {
+    public Cliente(int id_cliente, String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente, String email_usuario, int ativo_usuario) {
         super(email_usuario, ativo_usuario);
         this.id_cliente = id_cliente;
         this.cpf_cliente = cpf_cliente;
@@ -28,6 +28,15 @@ public class Cliente extends Usuario {
         this.sexo_cliente = sexo_cliente;
         this.nascimento_cliente = nascimento_cliente;
     }
+    
+//     public Cliente(String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente, String email_usuario, int ativo_usuario) {
+//        super(email_usuario, ativo_usuario);
+//        this.cpf_cliente = cpf_cliente;
+//        this.nome_cliente = nome_cliente;
+//        this.telefone_cliente = telefone_cliente;
+//        this.sexo_cliente = sexo_cliente;
+//        this.nascimento_cliente = nascimento_cliente;
+//    }
     
    
     public Cliente(int id_cliente){
