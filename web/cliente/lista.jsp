@@ -39,9 +39,9 @@
                     <td><c:out value="${cliente.telefone_cliente}" /></td>
                     <td><c:out value="${cliente.sexo_cliente}" /></td>
                     <td><c:out value="${cliente.nascimento_cliente}" /></td>
-                    <td><a href="edicao?id=<c:out value='${cliente.id_cliente}' />">Edição</a>
+                    <td><a href="edicao?id_cliente=<c:out value='${cliente.id_cliente}' />">Edição</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="remocao?id=<c:out value='${cliente.id_cliente}' />"
+                        <a href="remocao?id_cliente=<c:out value='${cliente.id_cliente}' />"
                            onclick="return confirm('Tem certeza de que deseja excluir este item?');">
                             Remoção
                         </a></td>
