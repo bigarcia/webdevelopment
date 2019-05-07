@@ -40,35 +40,36 @@ public class LocacaoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        String action = request.getServletPath();
+        String action = request.getRequestURI();
+        action = action.split("/")[action.split("/").length - 1];
         try {
             switch (action) {
 
-                case "/cadastro_locacao":
+                case "cadastro":
                     apresentaFormCadastro(request, response);
                     break;
 
-                case "/insercao":
+                case "insercao":
                     insere(request, response);
                     break;
 
-                case "/remocao":
+                case "remocao":
                     remove(request, response);
                     break;
 
-                case "/edicao":
+                case "edicao":
                     apresentaFormEdicao(request, response);
                     break;
 
-                case "/atualizacao":
+                case "atualizacao":
                     atualiza(request, response);
                     break;
-                case "/filtro_cliente":
+                case "filtro_cliente":
                     filtra_cliente(request, response);
                     break;
                     
                     
-                 case "/filtro_locadora":
+                 case "filtro_locadora":
                     filtra_locadora(request, response);
                     break;
                     
@@ -88,13 +89,13 @@ public class LocacaoController extends HttpServlet {
             throws ServletException, IOException {
         List<Locacao> listarLocacao = daoLocacao.getAll();
         request.setAttribute("listaLocacao", listarLocacao);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("locacao/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/lista.jsp");
         dispatcher.forward(request, response);
     }
 
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("locacao/formulario.jsp"); //formulario de locacoes
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/formulario.jsp"); //formulario de locacoes
         dispatcher.forward(request, response);
     }
 
@@ -102,7 +103,7 @@ public class LocacaoController extends HttpServlet {
             throws ServletException, IOException {
         int id_locacao = Integer.parseInt(request.getParameter("id_locacao")); //
         Locacao locacao = daoLocacao.get(id_locacao);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("locacao/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/formulario.jsp");
         request.setAttribute("locacao", locacao);
         dispatcher.forward(request, response);
     }

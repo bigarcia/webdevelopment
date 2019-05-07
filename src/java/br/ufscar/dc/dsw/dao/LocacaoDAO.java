@@ -228,10 +228,10 @@ public class LocacaoDAO extends GenericDAO {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, locacao.getDia_locacao());
-            ps.setString(1, locacao.getHora_locacao());
-            ps.setString(2, locacao.getCpf_cliente());
-            ps.setString(3, locacao.getCnpj_locadora());
-            ps.setInt(4, locacao.getId_locacao());
+            ps.setString(2, locacao.getHora_locacao());
+            ps.setString(3, locacao.getCpf_cliente());
+            ps.setString(4, locacao.getCnpj_locadora());
+            ps.setInt(5, locacao.getId_locacao());
             
             ps.executeUpdate();
             ps.close();

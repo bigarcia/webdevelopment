@@ -42,8 +42,8 @@ create table Locadora(
 
 create table Locacao(
     id_locacao integer not null generated always as identity(start with 1, increment by 1),
-    dia varchar(50) not null,
-    hora varchar(50) not null,
+    dia_locacao varchar(50) not null,
+    hora_locacao varchar(50) not null,
     cpf_cliente varchar(15) not null,
     cnpj_locadora varchar(14) not null,
     /*constraint Locacao1_FK FOREIGN KEY (cnpj_locadora) REFERENCES Locadora(cnpj_locadora), */

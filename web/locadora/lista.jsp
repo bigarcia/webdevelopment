@@ -36,9 +36,9 @@
                         </c:forEach>                               
                     </select>   
                 </td>
-          
             </tr>
         </table>
+        
     </form>
     <table border="1" cellpadding="5">
         <caption><h2>Lista de Locadoras</h2></caption>
