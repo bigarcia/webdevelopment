@@ -27,8 +27,8 @@ public class LocadoraDAO extends GenericDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1,id_locadora);
             ps.setString(2, locadora.getCnpj_locadora());
-            ps.setString(5, locadora.getNome_locadora());
-            ps.setString(6, locadora.getCidade_locadora());
+            ps.setString(3, locadora.getNome_locadora());
+            ps.setString(4, locadora.getCidade_locadora());
 
             ps.executeUpdate();
             ps.close();
@@ -142,17 +142,18 @@ public class LocadoraDAO extends GenericDAO {
     }
 
     public void update(Locadora locadora) {
-        String sql = "UPDATE Locadora SET cnpj_locadora = ?, nome_locadora = ?, cidade_locadora = ?";
+        String sql = "UPDATE Locadora SET nome_locadora = ?, cnpj_locadora = ?, cidade_locadora = ?";
         sql += " WHERE id_locadora = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setInt(1,locadora.getId_locadora());
-            ps.setString(2, locadora.getNome_locadora());
-            ps.setString(3, locadora.getCidade_locadora());
-            ps.setString(4, locadora.getCnpj_locadora());
+            
+            ps.setString(1, locadora.getNome_locadora());
+            ps.setString(2, locadora.getCnpj_locadora());
+            ps.setString(3, locadora.getCidade_locadora());           
+            ps.setInt(4,locadora.getId_locadora());
             ps.executeUpdate();
             ps.executeUpdate();
             ps.close();

@@ -36,31 +36,33 @@ public class LocadoraController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        String action = request.getServletPath();
+         String action = request.getRequestURI();
+        action = action.split("/")[action.split("/").length - 1];
         try {
             switch (action) {
 
-                case "/cadastro":
+                case "cadastro":
                     apresentaFormCadastro(request, response);
                     break;
 
-                case "/insercao":
+                case "insercao":
                     insere(request, response);
                     break;
 
-                case "/remocao":
+                case "remocao":
                     remove(request, response);
                     break;
-                case "/edicao":
+                case "edicao":
                     apresentaFormEdicao(request, response);
                     break;
 
-                case "/atualizacao":
+                case "atualizacao":
                     atualiza(request, response);
                     break;
 
-                case "/filtro_cidade":
+                case "filtro_cidade":
                     filtra_cidade(request, response);
+                    break;
 
                 default:
                     lista(request, response);
@@ -78,13 +80,13 @@ public class LocadoraController extends HttpServlet {
             throws ServletException, IOException {
         List<Locadora> listaLocadoras = daoLocadora.getAll();
         request.setAttribute("listaLocadoras", listaLocadoras);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("locacadora/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }
 
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("locacadora/formulario.jsp"); //formulario de locacoes
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/formulario.jsp"); //formulario de locacoes
         dispatcher.forward(request, response);
     }
 
@@ -92,7 +94,7 @@ public class LocadoraController extends HttpServlet {
             throws ServletException, IOException {
         int id_locadora = Integer.parseInt(request.getParameter("id_locadora"));
         Locadora locadora = daoLocadora.get(id_locadora);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("locadora/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/formulario.jsp");
         request.setAttribute("locadora", locadora);
         dispatcher.forward(request, response);
     }
