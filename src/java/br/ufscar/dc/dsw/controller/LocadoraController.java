@@ -36,7 +36,7 @@ public class LocadoraController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-         String action = request.getRequestURI();
+        String action = request.getRequestURI();
         action = action.split("/")[action.split("/").length - 1];
         try {
             switch (action) {
@@ -78,8 +78,24 @@ public class LocadoraController extends HttpServlet {
 
     private void lista(HttpServletRequest request, HttpServletResponse response) //listar todas as locadoras
             throws ServletException, IOException {
-        List<Locadora> listaLocadoras = daoLocadora.getAll();
+
+        request.setCharacterEncoding("UTF-8");
+        String cidade = request.getParameter("cidade_selecionada");
+
+        List<Locadora> listaLocadoras;
+        
+        if (cidade != null && !cidade.equals("Todos")) {
+            listaLocadoras = daoLocadora.getbyCities(cidade);
+            System.out.println("cidade = " +cidade);
+            System.out.println("tam = " + listaLocadoras.size());
+        } else {
+            listaLocadoras = daoLocadora.getAll();
+        }
+        
         request.setAttribute("listaLocadoras", listaLocadoras);
+        List<Locadora> listaLocadorasSelect = daoLocadora.getAll();
+        request.setAttribute("listaLocadorasSelect", listaLocadorasSelect);
+        System.out.println("listaLocadorasSelect" + listaLocadorasSelect);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }
@@ -108,7 +124,7 @@ public class LocadoraController extends HttpServlet {
         String email_usuario = request.getParameter("email_usuario");
         int ativo_usuario = 1;
 
-        Locadora locadora = new Locadora(-1,cnpj_locadora, nome_locadora, cidade_locadora, senha_usuario, email_usuario, ativo_usuario);
+        Locadora locadora = new Locadora(-1, cnpj_locadora, nome_locadora, cidade_locadora, senha_usuario, email_usuario, ativo_usuario);
         daoLocadora.insert(locadora);
         response.sendRedirect("lista");
     }
@@ -124,7 +140,7 @@ public class LocadoraController extends HttpServlet {
         String email_usuario = request.getParameter("email_usuario");
         int ativo_usuario = 1;
 
-        Locadora locadora = new Locadora(id_locadora,cnpj_locadora, nome_locadora, cidade_locadora, senha_usuario, email_usuario, ativo_usuario);
+        Locadora locadora = new Locadora(id_locadora, cnpj_locadora, nome_locadora, cidade_locadora, senha_usuario, email_usuario, ativo_usuario);
         daoLocadora.update(locadora);
         response.sendRedirect("lista");
     }
@@ -136,14 +152,20 @@ public class LocadoraController extends HttpServlet {
         daoLocadora.delete(locadora);
         response.sendRedirect("lista");
     }
+
     private void filtra_cidade(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+        System.out.println("ENTREI");
         request.setCharacterEncoding("UTF-8");
-        String cidade = request.getParameter("cidade_locadora");
-        
+        String cidade = request.getParameter("cidade_selecionada");
+
+        List<Locadora> listaLocadorasSelect = daoLocadora.getAll();
+        request.setAttribute("listaLocadorasSelect", listaLocadorasSelect);
+        System.out.println("listaLocadorasSelect" + listaLocadorasSelect);
+
         List<Locadora> listaLocadoras = daoLocadora.getbyCities(cidade);
         request.setAttribute("listaLocadoras", listaLocadoras);
-        
+        System.out.println("listaLocadoras" + listaLocadoras);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }

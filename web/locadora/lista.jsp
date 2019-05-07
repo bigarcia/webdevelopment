@@ -24,22 +24,27 @@
 
         </h2>
     </center>
-    <form name='form'>
+    <form name='form_cidade' action="lista" method="post">
         <table>
             <tr>
                 <td>Selecione uma cidade</td>
                 <td>
-                    <select id = 'cidade_locadora' name='cidade_locadora' onchange='cidadeSelecionada(this.value)'>
-                        <option value='--'>--</option>
-                        <c:forEach items='${listaLocadoras}' var='locadora'>                               
+                    <select id = 'cidade_locadora' name='cidade_selecionada' onchange="submit();">
+                        <option value='--' >Escolha Opcao</option>
+                        <option value='Todos'>Todos</option>
+                        <c:forEach items='${listaLocadorasSelect}' var='locadora'>                               
                             <option value='${locadora.cidade_locadora}'>${locadora.cidade_locadora}</option>                                
                         </c:forEach>                               
                     </select>   
                 </td>
             </tr>
+           
+            
         </table>
+      
         
     </form>
+    
     <table border="1" cellpadding="5">
         <caption><h2>Lista de Locadoras</h2></caption>
         <tr>

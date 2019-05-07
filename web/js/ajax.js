@@ -19,7 +19,7 @@ function cidadeSelecionada(str) {
         return;
     }
 
-    var url = "filtro_cidade";
+    var url = "locadora_crud/filtro_cidade";
     url += "?cidade_locadora=" + str;
     xmlHttp.onreadystatechange = atualizaCidades;
     xmlHttp.open("GET", url, true);
