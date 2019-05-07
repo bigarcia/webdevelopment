@@ -20,7 +20,7 @@ function cidadeSelecionada(str) {
     }
 
     var url = "filtro_cidade";
-    url += "?cidade=" + str;
+    url += "?cidade_locadora=" + str;
     xmlHttp.onreadystatechange = atualizaCidades;
     xmlHttp.open("GET", url, true);
     xmlHttp.send(null);
@@ -28,6 +28,6 @@ function cidadeSelecionada(str) {
 
 function atualizaCidades() {
     if (xmlHttp.readyState === 4 || xmlHttp.readyState === "complete") {
-        document.getElementById("cidades").innerHTML = xmlHttp.responseText;
+        document.getElementById("cidade_locadora").innerHTML = xmlHttp.responseText;
     }
 }

@@ -10,10 +10,10 @@
 <html>
     <head>
         <title>Locação</title>
-     
-         <script src="js/ajax.js"></script>
-      
-    
+
+        <script src="js/ajax.js"></script>
+
+
     </head>
     <body>
     <center>
@@ -21,51 +21,49 @@
         <h2>
             <a href="cadastro">Adicione Nova Locadora</a>
             &nbsp;&nbsp;&nbsp;
-           
+
         </h2>
     </center>
-        <form name='form'>
-            <table>
-               <tr>
-                    <td>Cidade</td>
-                    <td>
-                        <select id = 'cidade_locadora' name='cidade_locadora' onchange='cidadeSelecionada(this.value)'>
-                            <option value='--'>--</option>
-                            <c:forEach items='${locadora}' var='locadora'>
-                               
-                                <option value='${locadora.cidade_locadora}'>${locadora.cidade_locadora}</option>
-                                
-                            </c:forEach>
-                               
-                        </select>   
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <table border="1" cellpadding="5">
-            <caption><h2>Lista de Locadoras</h2></caption>
+    <form name='form'>
+        <table>
             <tr>
-                <th>ID</th>
-                <th>CNPJ</th>
-                <th>Nome</th>
-                <th>Cidade</th>
-               
+                <td>Selecione uma cidade</td>
+                <td>
+                    <select id = 'cidade_locadora' name='cidade_locadora' onchange='cidadeSelecionada(this.value)'>
+                        <option value='--'>--</option>
+                        <c:forEach items='${listaLocadoras}' var='locadora'>                               
+                            <option value='${locadora.cidade_locadora}'>${locadora.cidade_locadora}</option>                                
+                        </c:forEach>                               
+                    </select>   
+                </td>
+          
             </tr>
-            <c:forEach var="locadora" items="${listaLocadoras}">
-                <tr>
-                    <td><c:out value="${locadora.id_locadora}" /></td>
-                    <td><c:out value="${locadora.cnpj_locadora}" /></td>
-                    <td><c:out value="${locadora.nome_locadora}" /></td>
-                    <td><c:out value="${locadora.cidade_locadora}" /></td>
-                    <td><a href="edicao?id_locadora=<c:out value='${locadora.id_locadora}' />">Edição</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="remocao?id_locadora=<c:out value='${locadora.id_locadora}' />"
-                           onclick="return confirm('Tem certeza de que deseja excluir este item?');">
-                            Remoção
-                        </a></td>
-                </tr>
-            </c:forEach>
         </table>
-    </div>
+    </form>
+    <table border="1" cellpadding="5">
+        <caption><h2>Lista de Locadoras</h2></caption>
+        <tr>
+            <th>ID</th>
+            <th>CNPJ</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+
+        </tr>
+        <c:forEach var="locadora" items="${listaLocadoras}">
+            <tr>
+                <td><c:out value="${locadora.id_locadora}" /></td>
+                <td><c:out value="${locadora.cnpj_locadora}" /></td>
+                <td><c:out value="${locadora.nome_locadora}" /></td>
+                <td><c:out value="${locadora.cidade_locadora}" /></td>
+                <td><a href="edicao?id_locadora=<c:out value='${locadora.id_locadora}' />">Edição</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="remocao?id_locadora=<c:out value='${locadora.id_locadora}' />"
+                       onclick="return confirm('Tem certeza de que deseja excluir este item?');">
+                        Remoção
+                    </a></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

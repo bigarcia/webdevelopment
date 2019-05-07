@@ -139,7 +139,7 @@ public class LocadoraController extends HttpServlet {
     private void filtra_cidade(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8");
-        String cidade = request.getParameter("cidade");
+        String cidade = request.getParameter("cidade_locadora");
         
         List<Locadora> listaLocadoras = daoLocadora.getbyCities(cidade);
         request.setAttribute("listaLocadoras", listaLocadoras);
