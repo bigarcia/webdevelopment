@@ -23,6 +23,8 @@ public class Cliente implements Serializable {
     private String cpf_cliente;
     private String nome_cliente;
     private String telefone_cliente;
+    private String sexo_cliente;
+    private String nascimento_cliente;
 
     public Long getId_cliente() {
         return id_cliente;
@@ -87,8 +89,6 @@ public class Cliente implements Serializable {
     public void setNascimento_cliente(String nascimento_cliente) {
         this.nascimento_cliente = nascimento_cliente;
     }
-    private String sexo_cliente;
-    private String nascimento_cliente;
 }
 
    
