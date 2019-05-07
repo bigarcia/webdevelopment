@@ -10,6 +10,10 @@
 <html>
     <head>
         <title>Locação</title>
+     
+         <script src="js/ajax.js"></script>
+      
+    
     </head>
     <body>
     <center>
@@ -20,7 +24,24 @@
            
         </h2>
     </center>
-    <div align="center">
+        <form name='form'>
+            <table>
+               <tr>
+                    <td>Cidade</td>
+                    <td>
+                        <select id = 'cidade_locadora' name='cidade_locadora' onchange='cidadeSelecionada(this.value)'>
+                            <option value='--'>--</option>
+                            <c:forEach items='${locadora}' var='locadora'>
+                               
+                                <option value='${locadora.cidade_locadora}'>${locadora.cidade_locadora}</option>
+                                
+                            </c:forEach>
+                               
+                        </select>   
+                    </td>
+                </tr>
+            </table>
+        </form>
         <table border="1" cellpadding="5">
             <caption><h2>Lista de Locadoras</h2></caption>
             <tr>
