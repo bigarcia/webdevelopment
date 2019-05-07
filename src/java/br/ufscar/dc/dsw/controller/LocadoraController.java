@@ -60,9 +60,9 @@ public class LocadoraController extends HttpServlet {
                     atualiza(request, response);
                     break;
 
-                case "filtro_cidade":
+                /*case "filtro_cidade":
                     filtra_cidade(request, response);
-                    break;
+                    break;*/
 
                 default:
                     lista(request, response);
@@ -153,7 +153,7 @@ public class LocadoraController extends HttpServlet {
         response.sendRedirect("lista");
     }
 
-    private void filtra_cidade(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   /* private void filtra_cidade(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("ENTREI");
         request.setCharacterEncoding("UTF-8");
         String cidade = request.getParameter("cidade_selecionada");
@@ -168,5 +168,5 @@ public class LocadoraController extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locadora/lista.jsp");
         dispatcher.forward(request, response);
-    }
+    }*/
 }

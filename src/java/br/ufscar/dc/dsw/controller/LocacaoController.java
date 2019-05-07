@@ -3,8 +3,10 @@ package br.ufscar.dc.dsw.controller;
 import br.ufscar.dc.dsw.model.Cliente;
 import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.dao.LocacaoDAO;
+import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.model.Locacao;
+import br.ufscar.dc.dsw.model.Locadora;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -24,11 +26,13 @@ public class LocacaoController extends HttpServlet {
 
     private LocacaoDAO daoLocacao;
     private ClienteDAO daoCliente;
+    private LocadoraDAO daoLocadora;
 
     @Override
     public void init() {
         daoLocacao = new LocacaoDAO();
         daoCliente = new ClienteDAO();
+        daoLocadora = new LocadoraDAO();
     }
 
     @Override
@@ -95,14 +99,21 @@ public class LocacaoController extends HttpServlet {
 
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        List<Locadora> listaLocadoras = daoLocadora.getAll();
+        System.out.println(listaLocadoras);
+        request.setAttribute("listaLocadoras", listaLocadoras);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/formulario.jsp"); //formulario de locacoes
         dispatcher.forward(request, response);
+        
     }
 
     private void apresentaFormEdicao(HttpServletRequest request, HttpServletResponse response) //editar locacoes
             throws ServletException, IOException {
         int id_locacao = Integer.parseInt(request.getParameter("id_locacao")); //
         Locacao locacao = daoLocacao.get(id_locacao);
+        
+       
         RequestDispatcher dispatcher = request.getRequestDispatcher("/locacao/formulario.jsp");
         request.setAttribute("locacao", locacao);
         dispatcher.forward(request, response);
@@ -110,7 +121,7 @@ public class LocacaoController extends HttpServlet {
 
     private void insere(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ServletException {
         request.setCharacterEncoding("UTF-8");
-      
+       
         //int id_locacao = Integer.parseInt(request.getParameter("id_locacao"));
         String dia_locacao = request.getParameter("dia_locacao");
         String hora_locacao = request.getParameter("hora_locacao");                

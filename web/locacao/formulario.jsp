@@ -14,16 +14,12 @@
         </h2>
     </center>
     <div align="center">
-
-
         <form action="insercao" method="post">
 
             <table border="1" cellpadding="5">
                 <caption>
                     <h2>
-
                         Cadastro
-
                     </h2>
                 </caption>
                 <c:if test="${locacao != null}">
@@ -32,7 +28,7 @@
 
                 <tr>
                     <th>Locadora: </th>
-                    <th>Selecione uma das locadoras:</th>
+                   
                     <td>
                         <select id = 'nome_locadora' name='nome_locadora'>
                             <option value='--'>--</option>
@@ -41,6 +37,9 @@
                             </c:forEach>                               
                         </select>   
                     </td>
+                    
+                    
+                    
                     <th> OU </th>
                     <th>Digite o CNPJ:</th>
                     <td>
@@ -51,10 +50,19 @@
 
 
                 <tr>
-                    <th>Data: </th>
+                    <th>Dia: </th>
                     <td>
-                        <input type="date" name="data_locacao" size="5"
-                               value="<c:out value='${locacao.data_locacao}' />"/>
+                        <input type="text" name="dia_locacao" size="5"
+                               value="<c:out value='${locacao.dia_locacao}' />"/>
+                    </td>
+                </tr>
+                
+                
+                 <tr>
+                    <th>Hora: </th>
+                    <td>
+                        <input type="text" name="hora_locacao" size="5"
+                               value="<c:out value='${locacao.hora_locacao}' />"/>
                     </td>
                 </tr>
 
