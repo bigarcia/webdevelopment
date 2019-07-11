@@ -1,36 +1,43 @@
 package br.ufscar.dc.dsw.model;
 
-public class Locadora {
+public class Locadora extends Usuario{
 
+    private int id_locadora; 
     private String cnpj_locadora;
-    private String email_locadora;
-    private String senha_locadora;
     private String nome_locadora;
     private String cidade_locadora;
 
-    public Locadora(String cnpj_locadora, String email_locadora, String senha_locadora, String nome_locadora, String cidade_locadora) {
+    public Locadora(int id_locadora,String cnpj_locadora, String nome_locadora, String cidade_locadora, String senha_usuario, String email_usuario, int ativo_usuario) {
+        super(senha_usuario, email_usuario,ativo_usuario);
+        this.id_locadora = id_locadora;
         this.cnpj_locadora = cnpj_locadora;
-        this.email_locadora = email_locadora;
-        this.senha_locadora = senha_locadora;
         this.nome_locadora = nome_locadora;
         this.cidade_locadora = cidade_locadora;
     }
 
-    /*public Locadora(String email_locadora, String senha_locadora, String nome_locadora, String cidade_locadora) {
-        this.email_locadora = email_locadora;
-        this.senha_locadora = senha_locadora;
+    public Locadora(int id_locadora, String cnpj_locadora, String nome_locadora, String cidade_locadora, String email_usuario, int ativo_usuario){
+        super(email_usuario,ativo_usuario);
+        this.id_locadora = id_locadora;
+        this.cnpj_locadora = cnpj_locadora;
         this.nome_locadora = nome_locadora;
         this.cidade_locadora = cidade_locadora;
-    }*/
-    
-    public Locadora (String cnpj_locadora){
-        this.cnpj_locadora = cnpj_locadora;
-    }
-    
-    public Locadora(){
-        
     }
 
+   
+    
+    public Locadora (int id_locadora){
+        super(null, null, -1);
+        this.id_locadora = id_locadora;
+    }
+
+    public int getId_locadora() {
+        return id_locadora;
+    }
+
+    public void setId_locadora(int id_locadora) {
+        this.id_locadora = id_locadora;
+    }
+ 
 
     public String getCnpj_locadora() {
         return cnpj_locadora;
@@ -40,22 +47,7 @@ public class Locadora {
         this.cnpj_locadora = cnpj_locadora;
     }
 
-    public String getEmail_locadora() {
-        return email_locadora;
-    }
-
-    public void setEmail_locadora(String email_locadora) {
-        this.email_locadora = email_locadora;
-    }
-
-    public String getSenha_locadora() {
-        return senha_locadora;
-    }
-
-    public void setSenha_locadora(String senha_locadora) {
-        this.senha_locadora = senha_locadora;
-    }
-
+   
     public String getNome_locadora() {
         return nome_locadora;
     }

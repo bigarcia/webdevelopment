@@ -1,19 +1,17 @@
 package br.ufscar.dc.dsw.model;
 
-public class Cliente {
+public class Cliente extends Usuario {
 
-    //private int id_cliente;
-    private String email_cliente;
-    private String senha_cliente;
+    private int id_cliente;
     private String cpf_cliente;
     private String nome_cliente;
     private String telefone_cliente;
     private String sexo_cliente;
     private String nascimento_cliente;
 
-    public Cliente(String email_cliente, String senha_cliente, String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente) {
-        this.email_cliente = email_cliente;
-        this.senha_cliente = senha_cliente;
+    public Cliente(int id_cliente, String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente, String senha_usuario, String email_usuario, int ativo_usuario) {
+        super(senha_usuario, email_usuario, ativo_usuario);
+        this.id_cliente = id_cliente;
         this.cpf_cliente = cpf_cliente;
         this.nome_cliente = nome_cliente;
         this.telefone_cliente = telefone_cliente;
@@ -21,72 +19,40 @@ public class Cliente {
         this.nascimento_cliente = nascimento_cliente;
     }
     
-     public Cliente(String email_cliente, String senha_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente) {
-        this.email_cliente = email_cliente;
-        this.senha_cliente = senha_cliente;
-       // this.cpf_cliente = cpf_cliente;
-        this.nome_cliente = nome_cliente;
-        this.telefone_cliente = telefone_cliente;
-        this.sexo_cliente = sexo_cliente;
-        this.nascimento_cliente = nascimento_cliente;
-    }
-    
-    public Cliente(String cpf_cliente){
-        this.cpf_cliente = cpf_cliente;
-    }
-    
-    public Cliente(){
-        
-    }
-
-
- 
-    /*public Cliente(String cpf_cliente, String cnpj_locadora, String data_dia) {
-        this.cpf_cliente = cpf_cliente;
-        this.cnpj_locadora = cnpj_locadora;
-        this.data_dia = data_dia;
-    }*/
-
-   /* public Cliente(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
-
-    
-
-   /* public Cliente(String email_cliente, String senha_cliente, String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, java.util.Date nascimento_cliente) {
-       this.email_cliente = email_cliente;
-        this.senha_cliente = senha_cliente;
+    public Cliente(int id_cliente, String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente, String email_usuario, int ativo_usuario) {
+        super(email_usuario, ativo_usuario);
+        this.id_cliente = id_cliente;
         this.cpf_cliente = cpf_cliente;
         this.nome_cliente = nome_cliente;
         this.telefone_cliente = telefone_cliente;
         this.sexo_cliente = sexo_cliente;
         this.nascimento_cliente = nascimento_cliente;
-    }*/
-
-   /* public int getId_cliente() {
+    }
+    
+//     public Cliente(String cpf_cliente, String nome_cliente, String telefone_cliente, String sexo_cliente, String nascimento_cliente, String email_usuario, int ativo_usuario) {
+//        super(email_usuario, ativo_usuario);
+//        this.cpf_cliente = cpf_cliente;
+//        this.nome_cliente = nome_cliente;
+//        this.telefone_cliente = telefone_cliente;
+//        this.sexo_cliente = sexo_cliente;
+//        this.nascimento_cliente = nascimento_cliente;
+//    }
+    
+   
+    public Cliente(int id_cliente){
+        super(null, null, -1);
+        this.id_cliente = id_cliente;
+    }
+    
+    public int getId_cliente() {
         return id_cliente;
     }
 
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
-*/
-    public String getEmail_cliente() {
-        return email_cliente;
-    }
 
-    public void setEmail_cliente(String email_cliente) {
-        this.email_cliente = email_cliente;
-    }
-
-    public String getSenha_cliente() {
-        return senha_cliente;
-    }
-
-    public void setSenha_cliente(String senha_cliente) {
-        this.senha_cliente = senha_cliente;
-    }
-
+  
     public String getCpf_cliente() {
         return cpf_cliente;
     }
